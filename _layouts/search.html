@@ -22,7 +22,7 @@ layout: default
         var sjs = SimpleJekyllSearch({
           searchInput: searchText, //document.getElementById('s'),
           resultsContainer: document.getElementById('results-container'),
-          json: '/search.json',
+          json: '{{ site.baseurl }}/search.json',
           debounceTime: 1000
         })
         let t = setTimeout(()=> {

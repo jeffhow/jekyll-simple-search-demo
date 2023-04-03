@@ -9,33 +9,14 @@
 
     <main class="page-content" aria-label="Content">
       <!-- HTML elements for search -->
-      <form action="/" method="get">
-        <input type="text" name="s" id="s" placeholder="Search blog posts..">
-        <input type="hidden" id="searchText">
-      </form>
-      <ul id="results-container"></ul>
+      <div class="wrapper">
+        <form action="/search/" method="get">
+          <input type="text" name="s" id="s" placeholder="Search blog posts..">
+          <input type="hidden" id="searchText">
+        </form>
+      </div>
 
-      <!-- or without installing anything -->
-      <script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
-      <script>
-        let str = location.search.split('=')[1];
-        let searchText = document.getElementById('searchText')
-        if (str.length > 0) {
-            searchText.value = str;
-            console.log(str);
-          }
-          var sjs = SimpleJekyllSearch({
-            searchInput: searchText, //document.getElementById('s'),
-            resultsContainer: document.getElementById('results-container'),
-            json: '/search.json',
-            debounceTime: 1000
-          })
-          let t = setTimeout(()=> {
-            sjs.search(str);
-            clearTimeout(t);
-          }, 100)
-        
-      </script>
+      
       <div class="wrapper">
         {{ content }}
       </div>
